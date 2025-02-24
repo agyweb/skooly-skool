@@ -24,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.className} ${cairo.variable} antialiased`}>
+      <body
+        className={`${geistSans.className} ${cairo.variable} antialiased text-secondary`}
+      >
         {children}
       </body>
     </html>
