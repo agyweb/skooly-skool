@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,7 +7,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <span className="text-2xl  mb-4 block">logo</span>
+            <span className="  mb-4 block">
+              <Image src="/logo.png" width={55} height={55} alt=""></Image>
+            </span>
             <p className="text-neutral-500 text-[13px]">
               Where Teachers and Students Connect
             </p>

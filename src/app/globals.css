@@ -8,7 +8,7 @@
     --primary: 223 80% 46%;
     --secondary: 0 0% 8%;
     --foreground: 0 0% 96%;
-    --accent: 228, 88%, 97%;
+    --accent: 219.2 100% 97.1%;
 
     --card: 0 0% 100%;
 
@@ -63,4 +63,16 @@
 
 .box {
   @apply container px-5 lg:px-6 max-w-[1300px] mx-auto;
+}
+
+/* Hero */
+.hero-height {
+  height: 100vh;
+  height: 100dvh;
+}
+
+@media screen and (max-width: 380px) and (max-height: 670px) {
+  .hero-page {
+    @apply py-28;
+  }
 }
