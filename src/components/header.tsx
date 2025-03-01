@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { LanguageSelector } from "./language-selector";
 
@@ -15,30 +15,36 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import { motion, useScroll } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
 
 export const Header = () => {
-  const navigationItems = [
-    {
-      title: "Features",
-      href: "/platform-features",
-    },
-    {
-      title: "Education ",
-      href: "/educational",
-    },
-    {
-      title: "Benefits",
-      href: "/features",
-    },
-    {
-      title: "Community",
-      href: "/features",
-    },
-  ];
-
   const [isOpen, setOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const locale: string = useLocale();
+  const t = useTranslations("navigation");
+
+  const navigationItems = useMemo(
+    () => [
+      {
+        title: t("links.features"),
+        href: "/platform-features",
+      },
+      {
+        title: t("links.education"),
+        href: "/educational",
+      },
+      {
+        title: t("links.benefits"),
+        href: "/features",
+      },
+      {
+        title: t("links.community"),
+        href: "/features",
+      },
+    ],
+    [t]
+  );
 
   // Update the state when scrolling
   useEffect(() => {
@@ -66,7 +72,11 @@ export const Header = () => {
         </div>
 
         {/* Header Navigation */}
-        <div className="justify-center items-center gap-4 xl:flex hidden flex-row mr-16">
+        <div
+          className={`justify-center items-center gap-4 xl:flex hidden flex-row ${
+            locale === "en" ? "mr-16" : "ml-16"
+          }`}
+        >
           <div className="flex justify-center items-center">
             <div className="flex justify-center gap-4 flex-row">
               {navigationItems.map((item, i) => (
@@ -87,14 +97,14 @@ export const Header = () => {
           <div className="border-r border-secondary/60 md:inline hidden"></div>
 
           <Button className="md:inline-block hidden border border-primary">
-            Join us
+            {t("cta.joinUs")}
           </Button>
 
           <Button
             className="md:inline-block hidden bg-white border-neutral-100"
             variant="outline"
           >
-            Sign in
+            {t("cta.signIn")}
           </Button>
         </div>
 
@@ -109,7 +119,7 @@ export const Header = () => {
 
             <SheetContent
               hideClose
-              side="right"
+              side={`${locale === "ar" ? "left" : "right"}`}
               className="w-full sm:max-w-sm p-0 bg-zinc-900 border-none outline-none"
               aria-label="Navigation Menu"
               aria-describedby=""
@@ -147,14 +157,14 @@ export const Header = () => {
 
                 <div className="space-y-3">
                   <Button variant="default" className="w-full">
-                    Join us
+                    {t("cta.joinUs")}
                   </Button>
 
                   <Button
                     variant="outline"
                     className="w-full bg-white border-neutral-100"
                   >
-                    Sign in
+                    {t("cta.signIn")}
                   </Button>
                 </div>
               </div>

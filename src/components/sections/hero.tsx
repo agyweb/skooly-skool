@@ -2,13 +2,25 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { MoveRight } from "lucide-react";
+import { MoveRight, MoveLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
+import { useLocale, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+
 export const Hero = () => {
   const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(() => ["Connect", "Engage", "Collaborate"], []);
+  const locale = useLocale();
+  const titles = useMemo(
+    () =>
+      locale === "en"
+        ? ["Connect", "Engage", "Collaborate"]
+        : ["يتواصلون", "ينخرطون", "يتعاونون"],
+    [locale]
+  );
+
+  const t = useTranslations("hero");
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -36,16 +48,25 @@ export const Hero = () => {
               size="sm"
               className="gap-4 bg-white border-neutral-100 sm:text-sm text-xs"
             >
-              Discover our platform features <MoveRight className="w-4 h-4" />
+              {t("discoverBtn")}{" "}
+              {locale === "en" ? (
+                <MoveRight className="w-4 h-4" />
+              ) : (
+                <MoveLeft className="w-4 h-4" />
+              )}
             </Button>
           </div>
 
           <div className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-6xl lg:text-7xl max-w-4xl mx-auto tracking-tighter font-normal text-center">
-              <span className="text-spektr-cyan-50">
-                Where Teachers & Students
-              </span>
-              <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
+              <span className="text-spektr-cyan-50">{t("title")} </span>
+              <span
+                className={`relative overflow-hidden flex w-full justify-center text-center ${
+                  locale === "en"
+                    ? "min-h-[52px] md:min-h-[66px] lg:min-h-[78px] md:pt-1"
+                    : "min-h-[68px] md:min-h-[90px] lg:min-h-[120px] pt-2 md:pt-4"
+                }`}
+              >
                 &nbsp;
                 {titles.map((title, index) => (
                   <motion.span
@@ -72,15 +93,13 @@ export const Hero = () => {
             </h1>
 
             <p className="text-base md:text-lg lg:text-xl leading-relaxed tracking-tight text-neutral-800 max-w-2xl mt-2 mx-auto font-normal text-center">
-              Join Morocco&apos;s first educational platform combining teaching
-              services with learning communities. Unlock your potential through
-              expert guidance and collaborative learning experiences.
+              {t("subtitle")}
             </p>
           </div>
 
           <div className="flex flex-row justify-center items-center gap-3 flex-wrap">
             <Button size="lg" className="gap-3 border-primary">
-              Join as a Teacher{" "}
+              {t("teacherBtn")}{" "}
               <span className="w-4 h-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +116,7 @@ export const Hero = () => {
               className="gap-3 bg-white border-neutral-100"
               variant="outline"
             >
-              Join as Student{" "}
+              {t("studentBtn")}{" "}
               <span className="w-4 h-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
