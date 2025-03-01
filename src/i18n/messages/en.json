@@ -1,0 +1,21 @@
+{
+  "navigation": {
+    "links": {
+      "features": "Features",
+      "education": "Education",
+      "benefits": "Benefits",
+      "community": "Community"
+    },
+    "cta": {
+      "joinUs": "Join us",
+      "signIn": "Sign in"
+    }
+  },
+  "hero": {
+    "discoverBtn": "Discover our platform features",
+    "title": "Where Teachers & Students",
+    "subtitle": "Join Morocco's first educational platform combining teaching services with learning communities. Unlock your potential through expert guidance and collaborative learning experiences.",
+    "teacherBtn": "Join as a Teacher",
+    "studentBtn": "Join as Student"
+  }
+}

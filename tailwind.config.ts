@@ -52,6 +52,7 @@ export default {
         },
       },
       fontFamily: {
+        geist: "var(--font-geist-sans)",
         cairo: "var(--font-cairo)",
       },
       borderRadius: {
@@ -64,5 +65,6 @@ export default {
       },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
