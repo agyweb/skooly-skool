@@ -28,19 +28,19 @@ export const Header = () => {
     () => [
       {
         title: t("links.features"),
-        href: "/platform-features",
+        href: "#features",
       },
       {
         title: t("links.education"),
-        href: "/educational",
+        href: "#education",
       },
       {
         title: t("links.benefits"),
-        href: "/features",
+        href: "#benefits",
       },
       {
         title: t("links.community"),
-        href: "/features",
+        href: "#community",
       },
     ],
     [t]
@@ -96,8 +96,11 @@ export const Header = () => {
 
           <div className="border-r border-secondary/60 md:inline hidden"></div>
 
-          <Button className="md:inline-block hidden border border-primary">
-            {t("cta.joinUs")}
+          <Button
+            className="md:inline-block hidden border border-primary"
+            asChild
+          >
+            <Link href="#join-us">{t("cta.joinUs")}</Link>
           </Button>
 
           <Button
