@@ -1,14 +1,14 @@
 import { MessageSquareMore, SquareArrowOutUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function CommunityFeatures() {
+  const t = useTranslations("communityFeatures");
   return (
-    <div className="py-[50px] bg-[#f9fafb]">
+    <div className="py-[50px] bg-[#f9fafb]" id="community">
       <div className="box">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl font-bold">Community Features</h2>
-          <p className="text-neutral-500">
-            Unique features for an engaging learning experience
-          </p>
+          <h2 className="text-3xl font-bold">{t("title")}</h2>
+          <p className="text-neutral-500">{t("subtitle")}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:flex-row gap-8 gap-y-9 mt-14 ">
@@ -25,12 +25,11 @@ export default function CommunityFeatures() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold leading-none tracking-tight mt-5 ">
-              Educational Feed
+              {t("features.feature1.title")}
             </h3>
 
             <p className="text-neutral-500 text-[15px] mt-3">
-              Stay up to date with the latest educational content, community
-              announcements and important updates from teachers and peers.
+              {t("features.feature1.description")}
             </p>
           </div>
 
@@ -47,12 +46,11 @@ export default function CommunityFeatures() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold leading-none tracking-tight mt-5 ">
-              Group Discussions
+              {t("features.feature2.title")}
             </h3>
 
             <p className="text-neutral-500 text-[15px] mt-3">
-              Engage in meaningful educational discussions with peers, explore
-              subject-specific topics, and collaborate on solving problems.
+              {t("features.feature2.description")}
             </p>
           </div>
 
@@ -61,12 +59,11 @@ export default function CommunityFeatures() {
               <SquareArrowOutUpRight size={18} className="text-[#3956f5]" />
             </div>
             <h3 className="text-xl font-semibold leading-none tracking-tight mt-5 ">
-              Resource Sharing
+              {t("features.feature3.title")}
             </h3>
 
             <p className="text-neutral-500 text-[15px] mt-3">
-              Share and access educational materials including study guides and
-              teacher created content for better learning experience.
+              {t("features.feature3.description")}
             </p>
           </div>
 
@@ -75,13 +72,11 @@ export default function CommunityFeatures() {
               <MessageSquareMore size={18} className="text-[#3956f5]" />
             </div>
             <h3 className="text-xl font-semibold leading-none tracking-tight mt-5 ">
-              Direct Messaging
+              {t("features.feature4.title")}
             </h3>
 
             <p className="text-neutral-500 text-[15px] mt-3 ">
-              Connect directly with teachers and fellow students for
-              personalized assistance, quick questions, and educational
-              collaboration.
+              {t("features.feature4.description")}
             </p>
           </div>
         </div>
