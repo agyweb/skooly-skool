@@ -61,6 +61,28 @@
   }
 }
 
+/* Lenis */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Container */
 .box {
   @apply container px-5 lg:px-6 max-w-[1300px] mx-auto;
 }
@@ -73,6 +95,6 @@
 
 @media screen and (max-width: 380px) and (max-height: 670px) {
   .hero-page {
-    @apply py-28;
+    @apply pt-[270px];
   }
 }
