@@ -92,7 +92,7 @@ export const Hero = () => {
               </span>
             </h1>
 
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed tracking-tight text-neutral-800 max-w-2xl mt-2 mx-auto font-normal text-center">
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed tracking-tight text-neutral-800 max-w-[41rem] mt-2 mx-auto font-normal text-center">
               {t("subtitle")}
             </p>
           </div>
