@@ -1,7 +1,11 @@
 import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+
   return (
     <footer className="bg-[#f9fafb]  py-12 shadow-[0_0_0_1px_rgba(0,0,0,.05),0_2px_4px_rgba(0,0,0,.03),0_12px_24px_rgba(0,0,0,.03)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,51 +15,51 @@ export default function Footer() {
               <Image src="/logo.png" width={55} height={55} alt=""></Image>
             </span>
             <p className="text-neutral-500 text-[13px]">
-              Where Teachers and Students Connect
+              {t("logo-description")}
             </p>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4 tracking-tight">
-              Quick Links
+              {t("quick-links.title")}
             </h4>
             <ul className="space-y-2 text-neutral-500">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="#features"
                   className="hover:text-primary transition-colors text-[13px]"
                 >
-                  Find Teachers
-                </a>
+                  {t("quick-links.links.features")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="#education"
                   className="hover:text-primary transition-colors text-[13px]"
                 >
-                  Join Community
-                </a>
+                  {t("quick-links.links.education")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="#benefits"
                   className="hover:text-primary transition-colors text-[13px]"
                 >
-                  About Us
-                </a>
+                  {t("quick-links.links.benefits")}
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="#community"
                   className="hover:text-primary transition-colors text-[13px]"
                 >
-                  Help Center
-                </a>
+                  {t("quick-links.links.community")}
+                </Link>
               </li>
             </ul>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4 tracking-tight">
-              Contact
+              {t("contact.title")}
             </h4>
             <ul className="space-y-2 text-neutral-500">
               <li className="flex items-center text-[13px] gap-x-[6px] transition-colors hover:text-primary cursor-pointer">
@@ -70,9 +74,9 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4 tracking-tight">
-              Follow Us
+              {t("follow-us.title")}
             </h4>
-            <div className="flex space-x-4">
+            <div className="flex gap-4">
               <div className="size-10 bg-[#3956f51a] rounded-full grid place-items-center shrink-0 cursor-pointer border border-[#3955f51c]">
                 <Facebook size={18} className="text-[#3956f5]" />
               </div>
@@ -87,7 +91,8 @@ export default function Footer() {
         </div>
         <div className="border-t border-neutral-200 mt-12 pt-8 text-center text-neutral-500 text-[13px]">
           <p>
-            &copy;{new Date().getFullYear()} Skooly Skool. All rights reserved.
+            <span className="font-geist">&copy;</span>
+            {new Date().getFullYear()} {t("rights")}
           </p>
         </div>
       </div>
