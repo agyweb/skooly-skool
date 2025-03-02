@@ -6,7 +6,11 @@ export default function JoinUs() {
   const locale = useLocale();
 
   return (
-    <div className="py-[50px] bg-white" id="join-us">
+    <div
+      className="py-[50px] bg-white"
+      id="join-us"
+      style={{ scrollMarginTop: "80px" }}
+    >
       <div className="box">
         <div className="text-center space-y-3">
           <div

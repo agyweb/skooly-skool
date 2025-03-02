@@ -16,13 +16,26 @@ import {
 import Image from "next/image";
 import { motion, useScroll } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
+import { useNav } from "@/store/nav-menu-slice";
+import { useLenisStore } from "@/store/lenis-slice";
 
 export const Header = () => {
-  const [isOpen, setOpen] = useState(false);
+  // const [isOpen, setOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const { scrollY } = useScroll();
   const locale: string = useLocale();
+  const { lenis } = useLenisStore();
+  const { isOpen, toggle } = useNav((state) => state);
+
   const t = useTranslations("navigation");
+
+  useEffect(() => {
+    if (isOpen && lenis) {
+      lenis.stop();
+    } else if (!isOpen && lenis) {
+      lenis.start();
+    }
+  }, [isOpen, lenis]);
 
   const navigationItems = useMemo(
     () => [
@@ -68,7 +81,13 @@ export const Header = () => {
       <div className="box relative mx-auto min-h-20 flex md:gap-4 gap-2 flex-row xl:grid xl:grid-cols-3 items-center">
         {/* Header Logo */}
         <div className="relative overflow-hidden flex justify-start min-w-16">
-          <Image src="/logo.png" width={55} height={55} alt=""></Image>
+          <Image
+            className="logo cursor-pointer"
+            src="/logo.png"
+            width={55}
+            height={55}
+            alt=""
+          ></Image>
         </div>
 
         {/* Header Navigation */}
@@ -80,7 +99,7 @@ export const Header = () => {
           <div className="flex justify-center items-center">
             <div className="flex justify-center gap-4 flex-row">
               {navigationItems.map((item, i) => (
-                <Link key={i} href={item.href}>
+                <Link key={i} href={item.href} className="navLink">
                   <Button className="text-secondary" variant="link">
                     {item.title}
                   </Button>
@@ -97,7 +116,7 @@ export const Header = () => {
           <div className="border-r border-secondary/60 md:inline hidden"></div>
 
           <Button
-            className="md:inline-block hidden border border-primary"
+            className="md:inline-block hidden border border-primary navLink"
             asChild
           >
             <Link href="#join-us">{t("cta.joinUs")}</Link>
@@ -113,7 +132,7 @@ export const Header = () => {
 
         {/* Header Mobile Menu */}
         <div className="flex w-12 shrink xl:hidden items-end justify-end">
-          <Sheet open={isOpen} onOpenChange={setOpen}>
+          <Sheet open={isOpen} onOpenChange={toggle}>
             <SheetTrigger asChild>
               <Button variant="outline" className="bg-white border-neutral-100">
                 <Menu className="w-5 h-5" />
@@ -131,7 +150,15 @@ export const Header = () => {
 
               <div className="flex items-center justify-between p-4 border-b border-zinc-800">
                 <div className="flex items-center gap-2">
-                  <Image src="/logo.png" width={55} height={55} alt=""></Image>
+                  <Link href="/" className="navLink" onClick={toggle}>
+                    <Image
+                      className="logo cursor-pointer"
+                      src="/logo.png"
+                      width={55}
+                      height={55}
+                      alt=""
+                    ></Image>
+                  </Link>
                 </div>
 
                 <SheetClose asChild>
@@ -150,8 +177,8 @@ export const Header = () => {
                     <Link
                       key={item.title}
                       href={item.href}
-                      className="block text-xl font-normal py-4"
-                      onClick={() => setOpen(false)}
+                      className="block text-xl font-normal py-4 navLink"
+                      onClick={() => toggle()}
                     >
                       {item.title}
                     </Link>
@@ -159,9 +186,11 @@ export const Header = () => {
                 </nav>
 
                 <div className="space-y-3">
-                  <Button variant="default" className="w-full">
-                    {t("cta.joinUs")}
-                  </Button>
+                  <Link href="#join-us" className="navLink" onClick={toggle}>
+                    <Button variant="default" className="w-full">
+                      {t("cta.joinUs")}
+                    </Button>
+                  </Link>
 
                   <Button
                     variant="outline"
