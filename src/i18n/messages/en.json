@@ -17,5 +17,194 @@
     "subtitle": "Join Morocco's first educational platform combining teaching services with learning communities. Unlock your potential through expert guidance and collaborative learning experiences.",
     "teacherBtn": "Join as a Teacher",
     "studentBtn": "Join as Student"
+  },
+  "platformFeatures": {
+    "title": "Platform Features",
+    "subtitle": "Your complete platform for teaching, learning and connecting",
+    "forTeachers": {
+      "title": "For Teachers",
+      "features": {
+        "feature1": {
+          "title": "Create Profile",
+          "description": "Showcase your professional expertise and set your teaching modes"
+        },
+        "feature2": {
+          "title": "Teaching Options",
+          "description": "Choose between remote, in-person teaching with flexible scheduling"
+        },
+        "feature3": {
+          "title": "Build Community",
+          "description": "Create specialized subject groups and share teaching resources"
+        }
+      }
+    },
+    "forStudents": {
+      "title": "For Students",
+      "features": {
+        "feature1": {
+          "title": "Find Teachers",
+          "description": "Search and connect with qualified teachers across all subjects and levels"
+        },
+        "feature2": {
+          "title": "Learning Options",
+          "description": "Choose your preferred learning mode and convenient location for classes"
+        },
+        "feature3": {
+          "title": "Join Community",
+          "description": "Access interactive study groups and valuable educational resources"
+        }
+      }
+    }
+  },
+  "educationalCoverage": {
+    "title": "Educational Coverage",
+    "subtitle": "Complete coverage across all the educational levels",
+    "levels": {
+      "primary": {
+        "title": "Primary School",
+        "grades": "Grades 1-6",
+        "subjects": {
+          "subject1": "Mathematics",
+          "subject2": "Arabic Language",
+          "subject3": "French Language",
+          "subject4": "Islamic Education"
+        },
+        "additional": "+ 8 more subjects"
+      },
+      "middle": {
+        "title": "Middle School",
+        "grades": "Grades 7-9",
+        "subjects": {
+          "subject1": "Mathematics",
+          "subject2": "Physics & Chemistry",
+          "subject3": "Arabic Language",
+          "subject4": "English Language"
+        },
+        "additional": "+ 10 more subjects"
+      },
+      "high": {
+        "title": "High School",
+        "grades": "Grades 10-12",
+        "subjects": {
+          "subject1": "Science Tracks",
+          "subject2": "Literary Tracks",
+          "subject3": "Technical Tracks",
+          "subject4": "Economics Tracks"
+        },
+        "additional": "+ 5 specializations"
+      },
+      "additional": {
+        "title": "Specializations",
+        "grades": "Additional Coverage",
+        "subjects": {
+          "subject1": "Computer Science",
+          "subject2": "Art Education",
+          "subject3": "Languages",
+          "subject4": "Physical Education"
+        },
+        "additional": "+ 7 more specialized areas"
+      }
+    }
+  },
+  "platformBenfits": {
+    "title": "Platform Benefits",
+    "subtitle": "Your gateway to teaching and learning success",
+    "forTeachers": {
+      "title": "For Teachers",
+      "features": {
+        "feature1": {
+          "title": "Class Management",
+          "description": "Organize personal schedule, preferred modes, and available spaces"
+        },
+        "feature2": {
+          "title": "Communication Center",
+          "description": "Direct messaging, interactive group discussions, and student connections"
+        },
+        "feature3": {
+          "title": "Content Management",
+          "description": "Share effective teaching materials and organize educational resources"
+        }
+      }
+    },
+    "forStudents": {
+      "title": "For Students",
+      "features": {
+        "feature1": {
+          "title": "Smart Search",
+          "description": "Find qualified teachers by subject, educational level, and preferred modes"
+        },
+        "feature2": {
+          "title": "Learning Network",
+          "description": "Message experienced teachers and join subject-specific discussions"
+        },
+        "feature3": {
+          "title": "Learning Resources",
+          "description": "Access study materials and downloadable educational documents"
+        }
+      }
+    }
+  },
+  "communityFeatures": {
+    "title": "Community Features",
+    "subtitle": "Unique features for an engaging learning experience",
+    "features": {
+      "feature1": {
+        "title": "Educational Feed",
+        "description": "Stay up to date with the latest educational content, community announcements and important updates from teachers and peers."
+      },
+      "feature2": {
+        "title": "Group Discussions",
+        "description": "Engage in meaningful educational discussions with peers, explore subject-specific topics, and collaborate on solving problems."
+      },
+      "feature3": {
+        "title": "Resource Sharing",
+        "description": " Share and access educational materials including study guides and teacher created content for better learning experience."
+      },
+      "feature4": {
+        "title": "Direct Messaging",
+        "description": "Connect directly with teachers and fellow students for personalized assistance, quick questions, and educational collaboration."
+      }
+    }
+  },
+  "joinUs": {
+    "join-us": "Ready to join us?",
+    "title": "Begin Your Learnning Journey Today",
+    "subtitle": "Join our educational community today and become part of Morocco's growing network of teachers and students",
+    "forTeachers": {
+      "title": "For Teachers",
+      "description": "Share your expertise and help students achieve their academic goals. Create your professional teaching profile, offer your services, and connect with motivated learners.",
+      "cta": "Join as a Teacher"
+    },
+    "forStudents": {
+      "title": "For Students",
+      "description": "Find the perfect teachers to help you achieve your educational goals. Access personalized learning experiences, join study groups, and improve your academic performance.",
+      "cta": "Join as a Student"
+    },
+    "forParents": {
+      "title": "For Parents",
+      "description": "Monitor your child's education and connect with qualified teachers to support their academic journey. Stay involved in their learning process and help them succeed.",
+      "cta": "Join as a Parent"
+    }
+  },
+  "footer": {
+    "logo-description": "Where Teachers and Students Connect",
+    "quick-links": {
+      "title": "Quick Links",
+      "links": {
+        "features": "Features",
+        "education": "Education",
+        "benefits": "Benefits",
+        "community": "Community"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "phone": "+212 5XX-XXXXXX",
+      "email": "contact@skoolyskool.ma"
+    },
+    "follow-us": {
+      "title": "Follow Us"
+    },
+    "rights": "Skooly Skool. All rights reserved."
   }
 }
