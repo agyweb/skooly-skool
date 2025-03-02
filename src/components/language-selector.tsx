@@ -25,7 +25,7 @@ export const LanguageSelector = () => {
         pathname,
         query: Object.fromEntries(searchParams.entries()),
       },
-      { locale: currentLocale as Locale }
+      { locale: currentLocale as Locale, scroll: false }
     );
   };
 
