@@ -5,39 +5,40 @@ import {
   LibraryBig,
   Search,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function PlatformBenfits() {
+  const t = useTranslations("platformBenfits");
+
   return (
-    <div className="py-[50px] bg-white ">
+    <div className="py-[50px] bg-white" id="benefits">
       <div className="box">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl font-bold">Platform Benefits</h2>
-          <p className="text-neutral-500">
-            Your gateway to teaching and learning success
-          </p>
+          <h2 className="text-3xl font-bold">{t("title")}</h2>
+          <p className="text-neutral-500">{t("subtitle")}</p>
         </div>
 
         <div className="flex flex-col md:flex-row gap-8 gap-y-9 mt-16">
           <div className="bg-[#3956f51a] p-6 pt-12 rounded-lg relative flex-1 border border-[#3955f51c]">
             <div className="px-5 py-[6px] bg-primary rounded-full text-white absolute top-0 font-medium tracking-tight text-lg -translate-y-1/2">
-              For Teachers
+              {t("forTeachers.title")}
             </div>
             <div className="space-y-8">
               <CardItem
-                title="Class Management"
-                description="Organize personal schedule, preferred modes, and available spaces"
+                title={t("forTeachers.features.feature1.title")}
+                description={t("forTeachers.features.feature1.description")}
                 iconName="CalendarCog"
               />
 
               <CardItem
-                title="Communication Center"
-                description="Direct messaging, interactive group discussions, and student connections"
+                title={t("forTeachers.features.feature2.title")}
+                description={t("forTeachers.features.feature2.description")}
                 iconName="MessageSquareText"
               />
 
               <CardItem
-                title="Content Management"
-                description="Share effective teaching materials and organize educational resources"
+                title={t("forTeachers.features.feature3.title")}
+                description={t("forTeachers.features.feature3.description")}
                 iconName="FolderKanban"
               />
             </div>
@@ -45,24 +46,24 @@ export default function PlatformBenfits() {
 
           <div className="bg-[#3956f51a] p-6 pt-12 rounded-lg relative flex-1 border border-[#3955f51c]">
             <div className="px-5 py-[6px] bg-primary rounded-full text-white absolute top-0 font-medium tracking-tight text-lg -translate-y-1/2">
-              For Students
+              {t("forStudents.title")}
             </div>
             <div className="space-y-8">
               <CardItem
-                title="Smart Search"
-                description="Find qualified teachers by subject, educational level, and preferred modes"
+                title={t("forStudents.features.feature1.title")}
+                description={t("forStudents.features.feature1.description")}
                 iconName="Search"
               />
 
               <CardItem
-                title="Learning Network"
-                description="Message experienced teachers and join subject-specific discussions"
+                title={t("forStudents.features.feature2.title")}
+                description={t("forStudents.features.feature2.description")}
                 iconName="Team"
               />
 
               <CardItem
-                title="Learning Resources"
-                description="Access study materials and downloadable educational documents"
+                title={t("forStudents.features.feature3.title")}
+                description={t("forStudents.features.feature3.description")}
                 iconName="LibraryBig"
               />
             </div>
