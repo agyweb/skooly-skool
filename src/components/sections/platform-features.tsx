@@ -1,37 +1,38 @@
 import { Calendar, MapPin, Search, SquareUser, Users } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export default function PlatformFeatures() {
+  const t = useTranslations("platformFeatures");
+
   return (
-    <div className="py-[50px] bg-white ">
+    <div className="py-[50px] bg-white " id="features">
       <div className="box">
         <div className="text-center space-y-3">
-          <h2 className="text-3xl font-bold">Platform Features</h2>
-          <p className="text-neutral-500">
-            Your complete platform for teaching, learning and connecting
-          </p>
+          <h2 className="text-3xl font-bold">{t("title")}</h2>
+          <p className="text-neutral-500">{t("subtitle")}</p>
         </div>
 
         <div className="flex flex-col md:flex-row gap-8 gap-y-9 mt-16">
           <div className="bg-[#3956f51a] p-6 pt-12 rounded-lg relative flex-1 border border-[#3955f51c]">
             <div className="px-5 py-[6px] bg-primary rounded-full text-white absolute top-0 font-medium tracking-tight text-lg -translate-y-1/2">
-              For Teachers
+              {t("forTeachers.title")}
             </div>
             <div className="space-y-8">
               <CardItem
-                title="Create Profile"
-                description="Showcase your professional expertise and set your teaching modes"
+                title={t("forTeachers.features.feature1.title")}
+                description={t("forTeachers.features.feature1.description")}
                 iconName="SquareUser"
               />
 
               <CardItem
-                title="Teaching Options"
-                description="Choose between remote, in-person teaching with flexible scheduling"
+                title={t("forTeachers.features.feature2.title")}
+                description={t("forTeachers.features.feature2.description")}
                 iconName="Calendar"
               />
 
               <CardItem
-                title="Build Community"
-                description="Create specialized subject groups and share teaching resources"
+                title={t("forTeachers.features.feature3.title")}
+                description={t("forTeachers.features.feature3.description")}
                 iconName="Team"
               />
             </div>
@@ -39,24 +40,24 @@ export default function PlatformFeatures() {
 
           <div className="bg-[#3956f51a] p-6 pt-12 rounded-lg relative flex-1 border border-[#3955f51c]">
             <div className="px-5 py-[6px] bg-primary rounded-full text-white absolute top-0 font-medium tracking-tight text-lg -translate-y-1/2">
-              For Students
+              {t("forStudents.title")}
             </div>
             <div className="space-y-8">
               <CardItem
-                title="Find Teachers"
-                description="Search and connect with qualified teachers across all subjects and levels"
+                title={t("forStudents.features.feature1.title")}
+                description={t("forStudents.features.feature1.description")}
                 iconName="Search"
               />
 
               <CardItem
-                title="Learning Options"
-                description="Choose your preferred learning mode and convenient location for classes"
+                title={t("forStudents.features.feature2.title")}
+                description={t("forStudents.features.feature2.description")}
                 iconName="MapPin"
               />
 
               <CardItem
-                title="Join Community"
-                description="Access interactive study groups and valuable educational resources"
+                title={t("forStudents.features.feature3.title")}
+                description={t("forStudents.features.feature3.description")}
                 iconName="Users"
               />
             </div>
