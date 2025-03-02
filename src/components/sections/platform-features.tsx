@@ -5,7 +5,11 @@ export default function PlatformFeatures() {
   const t = useTranslations("platformFeatures");
 
   return (
-    <div className="py-[50px] bg-white " id="features">
+    <div
+      className="py-[50px] bg-white "
+      id="features"
+      style={{ scrollMarginTop: "80px" }}
+    >
       <div className="box">
         <div className="text-center space-y-3">
           <h2 className="text-3xl font-bold">{t("title")}</h2>

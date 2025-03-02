@@ -4,7 +4,11 @@ import { useTranslations } from "next-intl";
 export default function CommunityFeatures() {
   const t = useTranslations("communityFeatures");
   return (
-    <div className="py-[50px] bg-[#f9fafb]" id="community">
+    <div
+      className="py-[50px] bg-[#f9fafb]"
+      id="community"
+      style={{ scrollMarginTop: "80px" }}
+    >
       <div className="box">
         <div className="text-center space-y-3">
           <h2 className="text-3xl font-bold">{t("title")}</h2>

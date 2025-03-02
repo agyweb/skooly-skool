@@ -11,7 +11,11 @@ export default function PlatformBenfits() {
   const t = useTranslations("platformBenfits");
 
   return (
-    <div className="py-[50px] bg-white" id="benefits">
+    <div
+      className="py-[50px] bg-white"
+      id="benefits"
+      style={{ scrollMarginTop: "80px" }}
+    >
       <div className="box">
         <div className="text-center space-y-3">
           <h2 className="text-3xl font-bold">{t("title")}</h2>
