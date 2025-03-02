@@ -34,27 +34,32 @@ export const Hero = () => {
   }, [titleNumber, titles]);
 
   return (
-    <div className="relative overflow-hidden w-full hero-height">
+      <div className="relative overflow-hidden w-full hero-height">
       <div className="absolute inset-0 -z-10">
         <Image className="object-cover" src={"/hero-bg.png"} fill alt="" />
         <div className="absolute inset-0 bg-white/50"></div>
       </div>
 
-      <div className="container mx-auto">
+      <div
+        className="container mx-auto flex justify-center items-center"
+        style={{ height: "calc(100% - 80px)" }}
+      >
         <div className="hero-page flex gap-8 py-40 items-center justify-center flex-col md:px-0 px-5">
           <div className="relative overflow-hidden">
-            <Button
-              variant="outline"
-              size="sm"
-              className="gap-4 bg-white border-neutral-100 sm:text-sm text-xs"
-            >
-              {t("discoverBtn")}{" "}
-              {locale === "en" ? (
-                <MoveRight className="w-4 h-4" />
-              ) : (
-                <MoveLeft className="w-4 h-4" />
-              )}
-            </Button>
+            <Link href="#features" className="navLink">
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-4 bg-white border-neutral-100 sm:text-sm text-xs"
+              >
+                {t("discoverBtn")}{" "}
+                {locale === "en" ? (
+                  <MoveRight className="w-4 h-4" />
+                ) : (
+                  <MoveLeft className="w-4 h-4" />
+                )}
+              </Button>
+            </Link>
           </div>
 
           <div className="flex gap-4 flex-col">
