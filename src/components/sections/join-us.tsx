@@ -1,20 +1,32 @@
 import { ArrowRight, Rocket } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function JoinUs() {
+  const t = useTranslations("joinUs");
+  const locale = useLocale();
+
   return (
-    <div className="py-[50px] bg-white">
+    <div className="py-[50px] bg-white" id="join-us">
       <div className="box">
         <div className="text-center space-y-3">
-          <div className="h-11 bg-[#3956f51a] mb-5 border border-[#3955f51c] mx-auto px-4 text-[14px] flex items-center gap-x-[6px] w-fit rounded-full shrink-0 text-[#3956f5] font-semibold">
-            <Rocket size={18} />
-            Ready to join us?
+          <div
+            className={`h-11 bg-[#3956f51a] mb-5 border border-[#3955f51c] mx-auto px-4 text-[14px] flex items-center gap-x-[6px] w-fit rounded-full shrink-0 text-[#3956f5] ${
+              locale === "ar" ? "font-bold" : "font-semibold"
+            }`}
+          >
+            <Rocket
+              size={18}
+              className={`${locale === "ar" && "rotate-[280deg]"}`}
+            />
+            {t("join-us")}
           </div>
-          <h2 className="text-3xl font-bold">
-            Begin Your Learnning Journey Today
-          </h2>
-          <p className="text-neutral-500 max-w-[500px] mx-auto">
-            Join our educational community today and become part of
-            Morocco&apos;s growing network of teachers and students
+          <h2 className="text-3xl font-bold">{t("title")}</h2>
+          <p
+            className={`text-neutral-500 mx-auto ${
+              locale === "ar" ? "max-w-[400px]" : "max-w-[500px]"
+            }`}
+          >
+            {t("subtitle")}
           </p>
         </div>
 
@@ -32,20 +44,26 @@ export default function JoinUs() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold leading-none tracking-tight mt-5 ">
-              For Teachers
+              {t("forTeachers.title")}
             </h3>
 
             <p className="text-neutral-500 text-[15px] mt-3">
-              Share your expertise and help students achieve their academic
-              goals. Create your professional teaching profile, offer your
-              services, and connect with motivated learners.
+              {t("forTeachers.description")}
             </p>
 
             <button className="bg-primary rounded-md px-4 py-2 text-white mt-5 text-[13px] flex items-center gap-x-2 hover:opacity-95 transition-colors duration-300 group">
-              Join as a Teacher
+              {t("forTeachers.cta")}
               <ArrowRight
                 size={14}
-                className="group-hover:transform group-hover:translate-x-[3px] transition-transform duration-300"
+                className={`group-hover:transform  transition-transform duration-300 ${
+                  locale === "ar" && "rotate-[180deg]"
+                }
+                ${
+                  locale === "ar"
+                    ? "group-hover:-translate-x-[3px]"
+                    : "group-hover:translate-x-[3px]"
+                }
+                `}
               />
             </button>
           </div>
@@ -63,20 +81,26 @@ export default function JoinUs() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold leading-none tracking-tight mt-5 ">
-              For Students
+              {t("forStudents.title")}
             </h3>
 
             <p className="text-neutral-500 text-[15px] mt-3">
-              Find the perfect teachers to help you achieve your educational
-              goals. Access personalized learning experiences, join study
-              groups, and improve your academic performance.
+              {t("forStudents.description")}
             </p>
 
             <button className="bg-primary rounded-md px-4 py-2 text-white mt-5 text-[13px] flex items-center gap-x-2 hover:opacity-95 transition-colors duration-300 group">
-              Join as a Student
+              {t("forStudents.cta")}
               <ArrowRight
                 size={14}
-                className="group-hover:transform group-hover:translate-x-[3px] transition-transform duration-300"
+                className={`group-hover:transform  transition-transform duration-300 ${
+                  locale === "ar" && "rotate-[180deg]"
+                }
+                ${
+                  locale === "ar"
+                    ? "group-hover:-translate-x-[3px]"
+                    : "group-hover:translate-x-[3px]"
+                }
+                `}
               />
             </button>
           </div>
@@ -94,20 +118,26 @@ export default function JoinUs() {
               </svg>
             </div>
             <h3 className="text-xl font-semibold leading-none tracking-tight mt-5 ">
-              For Parents
+              {t("forParents.title")}
             </h3>
 
             <p className="text-neutral-500 text-[15px] mt-3 ">
-              Monitor your child&apos;s education and connect with qualified
-              teachers to support their academic journey. Stay involved in their
-              learning process and help them succeed.
+              {t("forParents.description")}
             </p>
 
             <button className="bg-primary rounded-md px-4 py-2 text-white mt-5 text-[13px] flex items-center gap-x-2 hover:opacity-95 transition-colors duration-300 group">
-              Join as a Parent
+              {t("forParents.cta")}
               <ArrowRight
                 size={14}
-                className="group-hover:transform group-hover:translate-x-[3px] transition-transform duration-300"
+                className={`group-hover:transform  transition-transform duration-300 ${
+                  locale === "ar" && "rotate-[180deg]"
+                }
+                ${
+                  locale === "ar"
+                    ? "group-hover:-translate-x-[3px]"
+                    : "group-hover:translate-x-[3px]"
+                }
+                `}
               />
             </button>
           </div>
