@@ -34,16 +34,13 @@ export const Hero = () => {
   }, [titleNumber, titles]);
 
   return (
-      <div className="relative overflow-hidden w-full hero-height">
+    <div className="relative overflow-hidden w-full hero-height">
       <div className="absolute inset-0 -z-10">
         <Image className="object-cover" src={"/hero-bg.png"} fill alt="" />
         <div className="absolute inset-0 bg-white/50"></div>
       </div>
 
-      <div
-        className="container mx-auto flex justify-center items-center"
-        style={{ height: "calc(100% - 80px)" }}
-      >
+      <div className="container mx-auto flex justify-center items-center h-full">
         <div className="hero-page flex gap-8 py-40 items-center justify-center flex-col md:px-0 px-5">
           <div className="relative overflow-hidden">
             <Link href="#features" className="navLink">
