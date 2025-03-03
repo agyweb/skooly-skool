@@ -75,8 +75,8 @@ export default function Footer() {
             <ul className="space-y-2 text-neutral-500">
               <li className="flex items-center text-[13px] gap-x-[6px] transition-colors hover:text-primary cursor-pointer">
                 <Mail size={13} />
-                <Link href="mailto:contact@skoolyskool">
-                  <span>contact@skoolyskool</span>
+                <Link href="mailto:contact@skoolyskool.ma">
+                  <span>contact@skoolyskool.ma</span>
                 </Link>
               </li>
               <li className="flex items-center text-[13px] gap-x-[6px] transition-colors hover:text-primary cursor-pointer">
@@ -93,21 +93,21 @@ export default function Footer() {
               {t("follow-us.title")}
             </h4>
             <div className="flex gap-4">
-              <div className="size-10 bg-[#3956f51a] rounded-full grid place-items-center shrink-0 cursor-pointer border border-[#3955f51c]">
-                <Link href="https://www.facebook.com" target="_blank">
+              <Link href="https://www.facebook.com" target="_blank">
+                <div className="size-10 bg-[#3956f51a] rounded-full grid place-items-center shrink-0 cursor-pointer border border-[#3955f51c]">
                   <Facebook size={18} className="text-[#3956f5]" />
-                </Link>
-              </div>
-              <div className="size-10 bg-[#3956f51a] rounded-full grid place-items-center shrink-0 cursor-pointer border border-[#3955f51c]">
-                <Link href="https://www.instagram.com" target="_blank">
+                </div>
+              </Link>
+              <Link href="https://www.instagram.com" target="_blank">
+                <div className="size-10 bg-[#3956f51a] rounded-full grid place-items-center shrink-0 cursor-pointer border border-[#3955f51c]">
                   <Instagram size={18} className="text-[#3956f5]" />
-                </Link>
-              </div>
-              <div className="size-10 bg-[#3956f51a] rounded-full grid place-items-center shrink-0 cursor-pointer border border-[#3955f51c]">
-                <Link href="https://www.linkedin.com" target="_blank">
+                </div>
+              </Link>
+              <Link href="https://www.linkedin.com" target="_blank">
+                <div className="size-10 bg-[#3956f51a] rounded-full grid place-items-center shrink-0 cursor-pointer border border-[#3955f51c]">
                   <Linkedin size={18} className="text-[#3956f5]" />
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
           </div>
         </div>
