@@ -87,7 +87,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
           <div>
             <h4 className="text-lg font-semibold mb-4 tracking-tight">
               {t("follow-us.title")}
