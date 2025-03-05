@@ -16,6 +16,8 @@ import { authSchema } from "@/validations/auth-validation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 export default function SignUpForm() {
   const form = useForm<z.infer<typeof authSchema>>({
@@ -26,6 +28,8 @@ export default function SignUpForm() {
       password: "",
     },
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = (values: z.infer<typeof authSchema>) => {
     console.log(values);
@@ -67,17 +71,35 @@ export default function SignUpForm() {
             <FormField
               control={form.control}
               name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
+              render={({ field }) => {
+                return (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
 
-                  <FormControl>
-                    <Input type="password" {...field} />
-                  </FormControl>
+                    <FormControl>
+                      <div className="relative">
+                        <Input
+                          type={showPassword ? "text" : "password"}
+                          {...field}
+                        />
+                        <button
+                          type="button"
+                          className="absolute inset-y-0 right-0 flex items-center px-2"
+                          onClick={() => setShowPassword(!showPassword)}
+                        >
+                          {showPassword ? (
+                            <Eye size={14} />
+                          ) : (
+                            <EyeOff size={14} />
+                          )}
+                        </button>
+                      </div>
+                    </FormControl>
 
-                  <FormMessage />
-                </FormItem>
-              )}
+                    <FormMessage />
+                  </FormItem>
+                );
+              }}
             />
           </div>
 
