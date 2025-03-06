@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Cairo } from "next/font/google";
 import "./globals.css";
-
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Locale, routing } from "@/i18n/routing";
+import Providers from "@/components/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,15 +27,11 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }>) {
-  // Ensure that the incoming `locale` is valid
   const { locale } = await params;
+
   if (!routing.locales.includes(locale as Locale)) {
     notFound();
   }
-
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages();
 
   const initFont =
     locale === "en"
@@ -46,10 +40,8 @@ export default async function RootLayout({
 
   return (
     <html dir={locale === "ar" ? "rtl" : "ltr"} lang={locale}>
-      <body className={`${initFont} antialiased text-secondary`}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+      <body className={`${initFont} text-secondary antialiased`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
