@@ -79,12 +79,13 @@ export default function SignUpForm() {
                     <FormControl>
                       <div className="relative">
                         <Input
+                          maxLength={24}
                           type={showPassword ? "text" : "password"}
                           {...field}
                         />
                         <button
                           type="button"
-                          className="absolute inset-y-0 right-0 flex items-center px-2"
+                          className="absolute inset-y-0 right-0 flex items-center px-2 pr-3"
                           onClick={() => setShowPassword(!showPassword)}
                         >
                           {showPassword ? (
