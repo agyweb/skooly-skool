@@ -1,7 +1,7 @@
 import { Geist, Cairo } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Locale, routing } from "@/i18n/routing";
-import Providers from "@/components/providers";
+import Providers from "@/components/providers/providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
