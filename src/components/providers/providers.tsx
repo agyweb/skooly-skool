@@ -1,6 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import ClerkProvider from "./clerk-provider";
+import ConvexProvider from "./convex-provider";
 
 export default async function Providers({
   children,
@@ -11,9 +12,13 @@ export default async function Providers({
 
   return (
     <>
-      <NextIntlClientProvider messages={messages}>
-        <ClerkProvider>{children}</ClerkProvider>
-      </NextIntlClientProvider>
+      <ClerkProvider>
+        <ConvexProvider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ConvexProvider>
+      </ClerkProvider>
     </>
   );
 }
