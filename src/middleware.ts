@@ -16,6 +16,8 @@ const isAuthPage = createRouteMatcher([
   "/:locale/sign-in(.*)",
   "/sign-up(.*)",
   "/:locale/sign-up(.*)",
+  "/guard(.*)",
+  "/:locale/guard(.*)",
 ]);
 
 export default function middleware(
