@@ -8,13 +8,15 @@ import { useRouter } from "next/navigation";
 import { useMutation } from "convex/react";
 import { api } from "../../../../../../convex/_generated/api";
 import { userModes } from "@/constants/common";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+import ChooseModePage from "./choose-mode";
 
 type Props = {
   user: Doc<"users">;
 };
 
 export default function Guard({ user: { mode, _id } }: Props) {
+  const [showChooseMode, setShowChooseMode] = useState(false);
   const { push } = useRouter();
 
   const serverMode = mode;
@@ -32,6 +34,7 @@ export default function Guard({ user: { mode, _id } }: Props) {
 
   useEffect(() => {
     if (!userModes.includes(serverMode!) && !userModes.includes(clientMode!)) {
+      setShowChooseMode(true);
     } else if (serverMode && userModes.includes(serverMode)) {
       console.log("serverMode", serverMode);
       redirectOnboarding(serverMode);
@@ -41,6 +44,10 @@ export default function Guard({ user: { mode, _id } }: Props) {
       redirectOnboarding(clientMode);
     }
   }, [_id, clientMode, serverMode, setUserMode, redirectOnboarding]);
+
+  if (showChooseMode) {
+    return <ChooseModePage setShowChooseMode={setShowChooseMode} />;
+  }
 
   return (
     <ClerkLoaded>
