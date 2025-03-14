@@ -1,6 +1,12 @@
-import { internalMutation, query, QueryCtx } from "./_generated/server";
+import {
+  internalMutation,
+  mutation,
+  query,
+  QueryCtx,
+} from "./_generated/server";
 import { UserJSON } from "@clerk/backend";
 import { v, Validator } from "convex/values";
+import { ConvexUserMode } from "./schema";
 
 export const current = query({
   args: {},
@@ -62,3 +68,18 @@ async function userByClerkUserId(ctx: QueryCtx, clerkUserId: string) {
     .withIndex("byClerkUserId", (q) => q.eq("clerkUserId", clerkUserId))
     .unique();
 }
+
+export const setUserMode = mutation({
+  args: {
+    id: v.id("users"),
+    mode: ConvexUserMode,
+  },
+
+  handler: async (ctx, args) => {
+    const { id, mode } = args;
+
+    await ctx.db.patch(id, {
+      mode,
+    });
+  },
+});
