@@ -56,7 +56,7 @@ export const Header = () => {
         href: "#community",
       },
     ],
-    [t]
+    [t],
   );
 
   // Update the state when scrolling
@@ -72,15 +72,15 @@ export const Header = () => {
 
   return (
     <motion.header
-      className={`w-full z-40 fixed top-0 left-0 transition-all duration-300 ${
+      className={`fixed left-0 top-0 z-40 w-full transition-all duration-300 ${
         hasScrolled
-          ? "[box-shadow:0_0_0_1px_rgba(0,0,0,.02),0_2px_4px_rgba(0,0,0,.03),0_12px_24px_rgba(0,0,0,.03)] bg-white"
+          ? "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.02),0_2px_4px_rgba(0,0,0,.03),0_12px_24px_rgba(0,0,0,.03)]"
           : ""
       }`}
     >
-      <div className="box relative mx-auto min-h-20 flex md:gap-4 gap-2 flex-row xl:grid xl:grid-cols-3 items-center">
+      <div className="box relative mx-auto flex min-h-20 flex-row items-center gap-2 md:gap-4 xl:grid xl:grid-cols-3">
         {/* Header Logo */}
-        <div className="relative overflow-hidden flex justify-start min-w-16">
+        <div className="relative flex min-w-16 justify-start overflow-hidden">
           <Image
             className="logo cursor-pointer"
             src="/logo.png"
@@ -92,12 +92,12 @@ export const Header = () => {
 
         {/* Header Navigation */}
         <div
-          className={`justify-center items-center gap-4 xl:flex hidden flex-row ${
+          className={`hidden flex-row items-center justify-center gap-4 xl:flex ${
             locale === "en" ? "mr-16" : "ml-16"
           }`}
         >
-          <div className="flex justify-center items-center">
-            <div className="flex justify-center gap-4 flex-row">
+          <div className="flex items-center justify-center">
+            <div className="flex flex-row justify-center gap-4">
               {navigationItems.map((item, i) => (
                 <Link key={i} href={item.href} className="navLink">
                   <Button className="text-secondary" variant="link">
@@ -110,45 +110,47 @@ export const Header = () => {
         </div>
 
         {/* Header Call To Actions */}
-        <div className="flex justify-end w-full gap-4">
+        <div className="flex w-full justify-end gap-4">
           <LanguageSelector />
 
-          <div className="border-r border-secondary/60 md:inline hidden"></div>
+          <div className="hidden border-r border-secondary/60 md:inline"></div>
 
           <Button
-            className="md:inline-block hidden border border-primary navLink"
+            className="navLink hidden border border-primary md:inline-block"
             asChild
           >
             <Link href="#join-us">{t("cta.joinUs")}</Link>
           </Button>
 
-          <Button
-            className="md:inline-block hidden bg-white border-neutral-100"
-            variant="outline"
-          >
-            {t("cta.signIn")}
-          </Button>
+          <Link href="/sign-in">
+            <Button
+              className="hidden border-neutral-100 bg-white md:inline-block"
+              variant="outline"
+            >
+              {t("cta.signIn")}
+            </Button>
+          </Link>
         </div>
 
         {/* Header Mobile Menu */}
-        <div className="flex w-12 shrink xl:hidden items-end justify-end">
+        <div className="flex w-12 shrink items-end justify-end xl:hidden">
           <Sheet open={isOpen} onOpenChange={toggle}>
             <SheetTrigger asChild>
-              <Button variant="outline" className="bg-white border-neutral-100">
-                <Menu className="w-5 h-5" />
+              <Button variant="outline" className="border-neutral-100 bg-white">
+                <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
 
             <SheetContent
               hideClose
               side={`${locale === "ar" ? "left" : "right"}`}
-              className="w-full sm:max-w-sm p-0 bg-zinc-900 border-none outline-none"
+              className="w-full border-none bg-zinc-900 p-0 outline-none sm:max-w-sm"
               aria-label="Navigation Menu"
               aria-describedby=""
             >
               <SheetTitle className="sr-only"></SheetTitle>
 
-              <div className="flex items-center justify-between p-4 border-b border-zinc-800">
+              <div className="flex items-center justify-between border-b border-zinc-800 p-4">
                 <div className="flex items-center gap-2">
                   <Link href="/" className="navLink" onClick={toggle}>
                     <Image
@@ -177,7 +179,7 @@ export const Header = () => {
                     <Link
                       key={item.title}
                       href={item.href}
-                      className="block text-xl font-normal py-4 navLink"
+                      className="navLink block py-4 text-xl font-normal"
                       onClick={() => toggle()}
                     >
                       {item.title}
@@ -186,18 +188,24 @@ export const Header = () => {
                 </nav>
 
                 <div className="space-y-3">
-                  <Link href="#join-us" className="navLink" onClick={toggle}>
+                  <Link
+                    href="#join-us"
+                    className="navLink inline-block w-full"
+                    onClick={toggle}
+                  >
                     <Button variant="default" className="w-full">
                       {t("cta.joinUs")}
                     </Button>
                   </Link>
 
-                  <Button
-                    variant="outline"
-                    className="w-full bg-white border-neutral-100"
-                  >
-                    {t("cta.signIn")}
-                  </Button>
+                  <Link href="/sign-in" className="inline-block w-full">
+                    <Button
+                      variant="outline"
+                      className="w-full border-neutral-100 bg-white text-secondary hover:text-secondary"
+                    >
+                      {t("cta.signIn")}
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </SheetContent>
