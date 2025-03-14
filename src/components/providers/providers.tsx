@@ -12,13 +12,11 @@ export default async function Providers({
 
   return (
     <>
-      <ClerkProvider>
-        <ConvexProvider>
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </ConvexProvider>
-      </ClerkProvider>
+      <NextIntlClientProvider messages={messages}>
+        <ClerkProvider>
+          <ConvexProvider>{children}</ConvexProvider>
+        </ClerkProvider>
+      </NextIntlClientProvider>
     </>
   );
 }
