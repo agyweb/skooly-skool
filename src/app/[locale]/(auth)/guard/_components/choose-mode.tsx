@@ -1,40 +1,43 @@
+import { useId, useState } from "react";
+
 import { useRouter } from "next/navigation";
-import { Dispatch, useEffect, useId } from "react";
+import { useLocale, useTranslations } from "next-intl";
 
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Button } from "@/components/ui/button";
 
-import { useLocale, useTranslations } from "next-intl";
 import Cookies from "js-cookie";
 
-type Props = {
-  setShowChooseMode: Dispatch<React.SetStateAction<boolean>>;
-};
-
-export default function ChooseModePage({ setShowChooseMode }: Props) {
+export default function ChooseModePage() {
   const id = useId();
   const { refresh } = useRouter();
   const t = useTranslations("chooseMode");
   const locale = useLocale();
+  const [modeValue, setModeValue] = useState<UserMode>("teacher");
 
-  useEffect(() => {
-    // Cookies.set("mode", "student");
-    // refresh();
-  }, [refresh]);
+  const handleChooseMode = () => {
+    Cookies.set("mode", modeValue);
+    refresh();
+  };
 
   return (
-    <div className="grid gap-y-8">
+    <div className="grid gap-y-8 px-6">
       <div className="grid gap-2">
         <h1 className="text-2xl font-semibold">{t("title")}</h1>
         <p className="text-muted-foreground">{t("description")}</p>
       </div>
 
-      <RadioGroup className="gap-2" defaultValue="1">
+      <RadioGroup
+        className="gap-2"
+        defaultValue="teacher"
+        onValueChange={(e) => setModeValue(e as UserMode)}
+      >
         <div
           className={`has-data-[state=checked]:border-ring shadow-xs relative flex w-full items-start gap-2 rounded-md border border-input p-4 outline-none ${locale === "ar" && "flex-row-reverse"}`}
         >
           <RadioGroupItem
-            value="1"
+            value="teacher"
             id={`${id}-1`}
             aria-describedby={`${id}-1-description`}
             className={`${locale === "ar" ? "order-2" : "order-1"} after:absolute after:inset-0`}
@@ -55,7 +58,7 @@ export default function ChooseModePage({ setShowChooseMode }: Props) {
             </div>
 
             <div
-              className={`grid grow gap-2 ${locale === "ar" && "justify-items-end"}`}
+              className={`grid grow gap-2 ${locale === "ar" && "justify-items-end text-right"}`}
             >
               <Label htmlFor={`${id}-1`}>{t("forTeachers.title")}</Label>
               <p
@@ -72,7 +75,7 @@ export default function ChooseModePage({ setShowChooseMode }: Props) {
           className={`has-data-[state=checked]:border-ring shadow-xs relative flex w-full items-start gap-2 rounded-md border border-input p-4 outline-none ${locale === "ar" && "flex-row-reverse"}`}
         >
           <RadioGroupItem
-            value="2"
+            value="student"
             id={`${id}-2`}
             aria-describedby={`${id}-2-description`}
             className={`${locale === "ar" ? "order-2" : "order-1"} after:absolute after:inset-0`}
@@ -93,7 +96,7 @@ export default function ChooseModePage({ setShowChooseMode }: Props) {
             </div>
 
             <div
-              className={`grid grow gap-2 ${locale === "ar" && "justify-items-end"}`}
+              className={`grid grow gap-2 ${locale === "ar" && "justify-items-end text-right"}`}
             >
               <Label htmlFor={`${id}-2`}>{t("forStudents.title")}</Label>
               <p
@@ -110,7 +113,7 @@ export default function ChooseModePage({ setShowChooseMode }: Props) {
           className={`has-data-[state=checked]:border-ring shadow-xs relative flex w-full items-start gap-2 rounded-md border border-input p-4 outline-none ${locale === "ar" && "flex-row-reverse"}`}
         >
           <RadioGroupItem
-            value="3"
+            value="parent"
             id={`${id}-3`}
             aria-describedby={`${id}-3-description`}
             className={`${locale === "ar" ? "order-2" : "order-1"} after:absolute after:inset-0`}
@@ -131,7 +134,7 @@ export default function ChooseModePage({ setShowChooseMode }: Props) {
             </div>
 
             <div
-              className={`grid grow gap-2 ${locale === "ar" && "justify-items-end"}`}
+              className={`grid grow gap-2 ${locale === "ar" && "justify-items-end text-right"}`}
             >
               <Label htmlFor={`${id}-3`}>{t("forParents.title")}</Label>
               <p
@@ -144,6 +147,10 @@ export default function ChooseModePage({ setShowChooseMode }: Props) {
           </div>
         </div>
       </RadioGroup>
+
+      <Button className="w-full" size="lg" onClick={handleChooseMode}>
+        {t("CTA")}
+      </Button>
     </div>
   );
 }

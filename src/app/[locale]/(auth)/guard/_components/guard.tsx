@@ -45,7 +45,7 @@ export default function Guard({ user: { mode, _id } }: Props) {
   }, [_id, clientMode, serverMode, setUserMode, redirectOnboarding]);
 
   if (showChooseMode) {
-    return <ChooseModePage setShowChooseMode={setShowChooseMode} />;
+    return <ChooseModePage />;
   }
 
   return (
