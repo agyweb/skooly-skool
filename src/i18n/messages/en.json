@@ -211,7 +211,7 @@
     "title": "Choose Your Role",
     "description": "Select how you want to join our educational platform",
 
-    "forTeachers": {  
+    "forTeachers": {
       "title": "Teacher",
       "description": "Share your expertise and help students achieve their academic goals"
     },
@@ -222,6 +222,8 @@
     "forParents": {
       "title": "Parent",
       "description": "Monitor your child's education and connect with qualified teachers"
-    }
+    },
+
+    "CTA": "Continue"
   }
 }
