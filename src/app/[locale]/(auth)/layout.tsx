@@ -1,12 +1,15 @@
 import Image from "next/image";
-import type { Metadata } from "next";
 import { LoaderCircle } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Skooly Skool | Authentication",
-  description: "Continue to Skooly Skool by signing in or creating an account.",
-};
+export async function generateMetadata() {
+  const t = await getTranslations("metadata");
+
+  return {
+    title: t("auth.title"),
+    description: t("auth.description"),
+  };
+}
 
 export default async function Authlayout({
   children,
