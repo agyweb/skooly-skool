@@ -1,6 +1,5 @@
 "use client";
 
-import { ClerkLoaded } from "@clerk/nextjs";
 import { LoaderCircle } from "lucide-react";
 import Cookies from "js-cookie";
 import { Doc } from "../../../../../../convex/_generated/dataModel";
@@ -50,12 +49,10 @@ export default function Guard({ user: { mode, _id } }: Props) {
   }
 
   return (
-    <ClerkLoaded>
-      <div>
-        <div className="animate-spin">
-          <LoaderCircle size={30} />
-        </div>
+    <div>
+      <div className="animate-spin">
+        <LoaderCircle size={30} />
       </div>
-    </ClerkLoaded>
+    </div>
   );
 }
