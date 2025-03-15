@@ -2,6 +2,7 @@ import { Geist, Cairo } from "next/font/google";
 import { notFound } from "next/navigation";
 import { Locale, routing } from "@/i18n/routing";
 import Providers from "@/components/providers/providers";
+import { getTranslations } from "next-intl/server";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,6 +13,15 @@ const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic"],
 });
+
+export async function generateMetadata() {
+  const t = await getTranslations("metadata");
+
+  return {
+    title: "Skooly Skool",
+    description: t("landing.description"),
+  };
+}
 
 export default async function LocaleLayout({
   children,
