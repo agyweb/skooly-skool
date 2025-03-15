@@ -1,4 +1,13 @@
 {
+  "metadata": {
+    "landing": {
+      "description": "Skooly Skool is Morocco's first educational platform that combines teaching services with learning communities. It provides a comprehensive solution for teachers and students to connect, share resources, and engage in collaborative learning experiences."
+    },
+    "auth": {
+      "title": "Skooly Skool | Authentication",
+      "description": "Continue to Skooly Skool by signing in or creating an account."
+    }
+  },
   "navigation": {
     "links": {
       "features": "Features",
