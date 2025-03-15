@@ -116,3 +116,8 @@ html.lenis {
   @apply bg-none;
 }
 /* END OF: CLERK STYLES */
+
+.dynamic-height {
+  min-height: 100vh;
+  min-height: 100svh;
+}

@@ -1,10 +1,17 @@
+"use client";
+
 import { Link } from "@/i18n/navigation";
 import { ArrowRight, Rocket } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
+import Cookies from "js-cookie";
 
 export default function JoinUs() {
   const t = useTranslations("joinUs");
   const locale = useLocale();
+
+  const createModeCookie = (mode: UserMode) => {
+    Cookies.set("mode", mode, { expires: 30 });
+  };
 
   return (
     <div
@@ -56,7 +63,7 @@ export default function JoinUs() {
               {t("forTeachers.description")}
             </p>
 
-            <Link href="/sign-up?mode=teacher">
+            <Link href="/sign-up" onClick={() => createModeCookie("teacher")}>
               <button className="group mt-5 flex items-center gap-x-2 rounded-md bg-primary px-4 py-2 text-[13px] text-white transition-colors duration-300 hover:opacity-95">
                 {t("forTeachers.cta")}
                 <ArrowRight
@@ -93,7 +100,7 @@ export default function JoinUs() {
               {t("forStudents.description")}
             </p>
 
-            <Link href="/sign-up?mode=student">
+            <Link href="/sign-up" onClick={() => createModeCookie("student")}>
               <button className="group mt-5 flex items-center gap-x-2 rounded-md bg-primary px-4 py-2 text-[13px] text-white transition-colors duration-300 hover:opacity-95">
                 {t("forStudents.cta")}
                 <ArrowRight
@@ -130,7 +137,7 @@ export default function JoinUs() {
               {t("forParents.description")}
             </p>
 
-            <Link href="/sign-up?mode=parent">
+            <Link href="/sign-up" onClick={() => createModeCookie("parent")}>
               <button className="group mt-5 flex items-center gap-x-2 rounded-md bg-primary px-4 py-2 text-[13px] text-white transition-colors duration-300 hover:opacity-95">
                 {t("forParents.cta")}
                 <ArrowRight

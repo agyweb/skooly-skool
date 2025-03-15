@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ClerkLoading } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { LoaderCircle } from "lucide-react";
 import { getTranslations } from "next-intl/server";
@@ -15,7 +14,7 @@ export default async function Authlayout({
   const t = await getTranslations("footer");
 
   return (
-    <div className="min-h-svh lg:flex">
+    <div className="dynamic-height lg:flex">
       <div className="hidden flex-col justify-between border border-transparent bg-muted p-10 lg:flex lg:w-1/2">
         <div className="select-none">
           <Image
@@ -39,14 +38,12 @@ export default async function Authlayout({
         </div>
       </div>
 
-      <div className="flex min-h-svh items-center justify-center py-5 lg:w-1/2">
-        <ClerkLoading>
-          <div className="animate-spin">
-            <LoaderCircle size={30} />
-          </div>
-        </ClerkLoading>
+      <div className="dynamic-height relative flex items-center justify-center py-5 lg:w-1/2">
+        <div className="absolute animate-spin">
+          <LoaderCircle size={30} />
+        </div>
 
-        {children}
+        <div className="relative z-30 bg-white">{children}</div>
       </div>
     </div>
   );

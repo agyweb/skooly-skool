@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { MoveRight, MoveLeft } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Cookies from "js-cookie";
 
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -32,6 +33,10 @@ export const Hero = () => {
     }, 2000);
     return () => clearTimeout(timeoutId);
   }, [titleNumber, titles]);
+
+  const createModeCookie = (mode: UserMode) => {
+    Cookies.set("mode", mode, { expires: 30 });
+  };
 
   return (
     <div className="hero-height relative w-full overflow-hidden">
@@ -100,7 +105,7 @@ export const Hero = () => {
           </div>
 
           <div className="flex flex-row flex-wrap items-center justify-center gap-3">
-            <Link href="/sign-up?mode=teacher">
+            <Link href="/sign-up" onClick={() => createModeCookie("teacher")}>
               <Button size="lg" className="gap-3 border-primary">
                 {t("teacherBtn")}{" "}
                 <span className="h-4 w-4">
@@ -115,7 +120,7 @@ export const Hero = () => {
               </Button>
             </Link>
 
-            <Link href="/sign-up?mode=student">
+            <Link href="/sign-up" onClick={() => createModeCookie("student")}>
               <Button
                 size="lg"
                 className="gap-3 border-neutral-100 bg-white"

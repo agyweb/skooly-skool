@@ -1,0 +1,1 @@
+type UserMode = "teacher" | "student" | "parent";

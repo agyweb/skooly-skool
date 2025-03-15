@@ -206,5 +206,24 @@
       "title": "Follow Us"
     },
     "rights": "Skooly Skool. All rights reserved."
+  },
+  "chooseMode": {
+    "title": "Choose Your Role",
+    "description": "Select how you want to join our educational platform",
+
+    "forTeachers": {
+      "title": "Teacher",
+      "description": "Share your expertise and help students achieve their academic goals"
+    },
+    "forStudents": {
+      "title": "Student",
+      "description": "Find the perfect teachers to help you achieve your educational goals"
+    },
+    "forParents": {
+      "title": "Parent",
+      "description": "Monitor your child's education and connect with qualified teachers"
+    },
+
+    "CTA": "Continue"
   }
 }
