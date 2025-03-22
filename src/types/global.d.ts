@@ -1,5 +1,9 @@
 type UserMode = "teacher" | "student" | "parent";
 
+type Language = "en" | "ar" | "fr";
+
+type Gender = "male" | "female";
+
 type LabeledValue<T> = {
   label: string;
   value: T;
