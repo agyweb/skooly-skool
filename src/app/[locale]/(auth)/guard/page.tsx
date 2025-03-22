@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import Guard from "./_components/guard";
 import { fetchQuery } from "convex/nextjs";
 import { api } from "../../../../../convex/_generated/api";
-import { getAuthToken } from "@/utilities/utils";
+import { getAuthToken } from "@/utilities/auth";
 
 export default async function AuthGuard() {
   const token = await getAuthToken();
