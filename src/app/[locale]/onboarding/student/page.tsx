@@ -1,3 +1,26 @@
+import Image from "next/image";
+
 export default function StudentPage() {
-  return <div>StudentPage</div>;
+  return (
+    <div className="box">
+      <header className="flex items-center justify-between gap-x-3 py-3">
+        <Image src="/logo.png" alt="logo" width={50} height={50} />
+        <div className="flex items-center gap-x-1">
+          <div className="relative bottom-[2.5px]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="20"
+              height="20"
+              fill="#174dd3"
+            >
+              <path d="m21.943,4.5L13.722.39c-1.048-.521-2.4-.521-3.446.002L2.057,4.5l3.943,1.971v2.529c0,3.309,2.691,6,6,6s6-2.691,6-6v-2.529l2-1v6.529h2v-7.5h-.057Zm-10.773-2.319c.481-.239,1.18-.24,1.66,0l4.641,2.32-4.642,2.319c-.479.24-1.177.24-1.658,0l-4.641-2.319,4.639-2.319Zm4.831,6.819c0,2.206-1.794,4-4,4s-4-1.794-4-4v-1.529l2.276,1.138c.524.262,1.125.393,1.725.393s1.2-.131,1.723-.393l2.276-1.138v1.529Zm4,11.5v3.5h-2v-3.5c0-1.276-.961-2.333-2.199-2.481l-3.787,4.543-3.79-4.547c-1.25.138-2.225,1.2-2.225,2.485v3.5h-2v-3.5c0-2.481,2.019-4.5,4.5-4.5h.648l2.866,3.438,2.865-3.438h.62c2.481,0,4.5,2.019,4.5,4.5Z" />
+            </svg>
+          </div>
+
+          <p className="tracking-tight">Student Onboarding</p>
+        </div>
+      </header>
+    </div>
+  );
 }
